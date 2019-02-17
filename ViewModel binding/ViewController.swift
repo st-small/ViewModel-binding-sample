@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+public class ViewController: UIViewController {
+    
+    private var viewModel = ViewModel()
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        viewModel.color.bind(listener: { (color) in
+            self.view.backgroundColor = color
+        })
     }
-
-
 }
 
